@@ -40,7 +40,7 @@
 -(NSString *)changeString:(NSString *)str
 {
     NSMutableArray * marr = [NSMutableArray arrayWithArray:[str componentsSeparatedByString:@"\""]];
-    for (int i = 0; i < marr.count; i++) {
+    for (int i = 0; i < marr.count; i ++) {
         NSString * subStr = marr[i];
         if ([subStr hasPrefix:@"/var"] || [subStr hasPrefix:@" id="]) {
             [marr removeObject:subStr];
@@ -50,6 +50,7 @@
     NSString * newStr = [marr componentsJoinedByString:@"\""];
     return newStr;
 }
+
 - (IBAction)addImage:(id)sender {
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -62,7 +63,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
-    NSString *imageName = [NSString stringWithFormat:@"iOS%@.png", [self stringDate]];
+    NSString *imageName = [NSString stringWithFormat:@"ios%@.png", [self stringDate]];
     NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:imageName];
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     UIImage *image;

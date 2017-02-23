@@ -50,12 +50,11 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *imageName = [NSString stringWithFormat:@"iOS%@.jpg", [self stringDate]];
+    NSString *imageName = [NSString stringWithFormat:@"ios%@.jpg", [self stringDate]];
     NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:imageName];
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     UIImage *image;
-    if ([mediaType isEqualToString:@"public.image"])
-    {
+    if ([mediaType isEqualToString:@"public.image"]) {
         image = [info objectForKey:UIImagePickerControllerOriginalImage];
         NSData *imageData = UIImageJPEGRepresentation(image, 1);
         [imageData writeToFile:imagePath atomically:YES];
