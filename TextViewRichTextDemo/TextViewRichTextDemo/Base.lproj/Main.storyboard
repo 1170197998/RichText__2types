@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-830" y="44"/>
         </scene>
-        <!--View Controller-->
+        <!--TextView编辑界面-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NaC-PG-r5F">
+                    <navigationItem key="navigationItem" title="TextView编辑界面" id="NaC-PG-r5F">
                         <barButtonItem key="leftBarButtonItem" title="image" id="pVi-wd-YD0">
                             <connections>
                                 <action selector="addImage:" destination="BYZ-38-t0r" id="zVR-V0-HBq"/>
