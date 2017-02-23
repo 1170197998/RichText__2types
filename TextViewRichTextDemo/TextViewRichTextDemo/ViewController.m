@@ -35,7 +35,7 @@
 
 - (IBAction)push:(id)sender {
     ShowViewController *vc = [[ShowViewController alloc] init];
-    vc.htmlString = [ViewController attriToStrWithAttri:self.textView.attributedText];
+    vc.htmlString = [self attriToStrWithAttributeString:self.textView.attributedText];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -61,7 +61,7 @@
     }
     
     NSInteger userid = 00001;
-    NSString *url = [NSString stringWithFormat:@"http://pic.baidu.com/images/%@/%@/%@",[NSString stringWithFormat:@"%ld",userid],[NSString stringWithFormat:@"%ld",(long)userid],imageName];
+    NSString *url = [NSString stringWithFormat:@"http://pic.baidu.com/images/%@/%@/%@",[NSString stringWithFormat:@"%ld",(long)userid],[NSString stringWithFormat:@"%ld",(long)userid],imageName];
     NSDictionary *dic = @{@"url":url,@"image":image,@"name":imageName};
     [self uploadImage:image];
     [self.imageArray addObject:dic];
@@ -91,25 +91,18 @@
     return timeString;
 }
 
-- (IBAction)save:(id)sender {
-    
-    NSLog(@"富文本-----%@",self.textView.attributedText);
-    NSLog(@"-----------");
-    NSLog(@"html字符串-----%@",[ViewController attriToStrWithAttri:self.textView.attributedText]);
-}
-
 //富文本转html字符串
-+ (NSString *)attriToStrWithAttri:(NSAttributedString *)attri
+- (NSString *)attriToStrWithAttributeString:(NSAttributedString *)attributeString
 {
     NSDictionary *tempDic = @{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:[NSNumber numberWithInt:NSUTF8StringEncoding]};
-    NSData *htmlData = [attri dataFromRange:NSMakeRange(0, attri.length) documentAttributes:tempDic error:nil];
+    NSData *htmlData = [attributeString dataFromRange:NSMakeRange(0, attributeString.length) documentAttributes:tempDic error:nil];
     return [[NSString alloc] initWithData:htmlData encoding:NSUTF8StringEncoding];
 }
 
 //字符串转富文本
-+ (NSAttributedString *)strToAttriWithStr:(NSString *)htmlStr
+- (NSAttributedString *)strToAttriWithString:(NSString *)htmlString
 {
-    return [[NSAttributedString alloc] initWithData:[htmlStr dataUsingEncoding:NSUnicodeStringEncoding] options:@{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType} documentAttributes:nil error:nil];
+    return [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType} documentAttributes:nil error:nil];
 }
 
 @end
