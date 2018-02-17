@@ -6,5 +6,5 @@
 
 # 
 
-##TextViewRichText:
-##![Mou icon](http://g.recordit.co/T1oMu5TcvK.gif)
+## TextViewRichText:
+## ![Mou icon](http://g.recordit.co/T1oMu5TcvK.gif)
